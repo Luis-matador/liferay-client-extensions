@@ -1,0 +1,122 @@
+.metrics-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.metric-card {
+  display: flex;
+  align-items: center;
+  padding: 16px 18px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  min-height: 120px;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  }
+
+  .metric-icon {
+    margin-right: 14px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    padding-left: 15px;
+    height: 48px;
+
+    mat-icon {
+      font-size: 40px;
+      width: 40px;
+      height: 40px;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 40px;
+    }
+  }
+
+  .metric-content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* center titles/values horizontally */
+
+    h3 {
+      margin: 0 0 4px 0;
+      font-size: 9px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.95);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      line-height: 1.2;
+    }
+
+    .metric-value {
+      margin: 4px 0;
+      font-size: 26px;
+      font-weight: 700;
+      color: white;
+      line-height: 1.1;
+      text-align: center;
+      align-self: center;
+    }
+
+    .metric-label {
+      font-size: 10px;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.2;
+      display: block;
+    }
+  }
+
+  &.primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+
+  &.success {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  }
+
+  &.info {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  }
+
+  &.warning {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  }
+
+  &.accent {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+  }
+
+  &.approved {
+    background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+  }
+}
+
+@media (max-width: 768px) {
+  .metrics-container {
+    grid-template-columns: 1fr;
+  }
+
+  .metric-card {
+    .metric-icon mat-icon {
+      font-size: 40px;
+      width: 40px;
+      height: 40px;
+    }
+
+    .metric-content .metric-value {
+      font-size: 24px;
+    }
+  }
+}

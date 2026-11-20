@@ -1,0 +1,45 @@
+<div class="kanban-container">
+  <div *ngIf="loading" class="loading-container">
+    <p>Cargando vista Kanban...</p>
+  </div>
+
+  <div *ngIf="!loading" class="kanban-board" cdkDropListGroup>
+    <div *ngFor="let column of columns" class="kanban-column">
+      <div class="column-header" [style.background-color]="column.color">
+        <h3>{{ column.title }}</h3>
+        <span class="count-badge">{{ column.quotations.length }}</span>
+      </div>
+
+      <div 
+        class="quotation-list"
+        cdkDropList
+        [cdkDropListData]="column.quotations"
+        [id]="column.id"
+        (cdkDropListDropped)="drop($event, column)">
+        
+        <div 
+          *ngFor="let quotation of column.quotations" 
+          class="quotation-card"
+          cdkDrag>
+          <div class="card-header">
+            <strong>#{{ quotation.id }}</strong>
+            <mat-icon class="drag-handle" cdkDragHandle>drag_indicator</mat-icon>
+          </div>
+          
+          <div class="card-content">
+            <h4>{{ quotation.projectName }}</h4>
+            <p class="client-name">
+              <mat-icon>person</mat-icon>
+              {{ quotation.clientName }}
+            </p>
+            <p class="amount">{{ formatCurrency(quotation.amount) }}</p>
+            <p class="date">
+              <mat-icon>calendar_today</mat-icon>
+              {{ formatDate(quotation.createdDate) }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

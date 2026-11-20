@@ -1,0 +1,122 @@
+<div class="dialog-header">
+  <mat-icon>add_circle</mat-icon>
+  <h2>Nueva Cotización</h2>
+</div>
+
+<mat-dialog-content>
+  <form [formGroup]="quotationForm" class="quotation-form">
+    
+    <div class="form-section">
+      <div class="section-title">
+        <mat-icon>contact_mail</mat-icon>
+        Información del Cliente
+      </div>
+    </div>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Nombre del Cliente</mat-label>
+      <input matInput formControlName="clientName" placeholder="Ej: Juan Pérez">
+      <mat-icon matPrefix>person</mat-icon>
+      <mat-error *ngIf="quotationForm.get('clientName')?.hasError('required')">
+        El nombre es requerido
+      </mat-error>
+      <mat-error *ngIf="quotationForm.get('clientName')?.hasError('minlength')">
+        Mínimo 3 caracteres
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Email del Cliente</mat-label>
+      <input matInput type="email" formControlName="clientEmail" placeholder="cliente@example.com">
+      <mat-icon matPrefix>email</mat-icon>
+      <mat-error *ngIf="quotationForm.get('clientEmail')?.hasError('required')">
+        El email es requerido
+      </mat-error>
+      <mat-error *ngIf="quotationForm.get('clientEmail')?.hasError('email')">
+        Email inválido
+      </mat-error>
+    </mat-form-field>
+
+    <div class="form-section">
+      <div class="section-title">
+        <mat-icon>business_center</mat-icon>
+        Detalles del Proyecto
+      </div>
+    </div>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Nombre del Proyecto</mat-label>
+      <input matInput formControlName="projectName" placeholder="Ej: Desarrollo Web">
+      <mat-icon matPrefix>work</mat-icon>
+      <mat-error *ngIf="quotationForm.get('projectName')?.hasError('required')">
+        El nombre del proyecto es requerido
+      </mat-error>
+      <mat-error *ngIf="quotationForm.get('projectName')?.hasError('minlength')">
+        Mínimo 3 caracteres
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Monto (EUR)</mat-label>
+      <input matInput type="number" formControlName="amount" placeholder="0.00">
+      <mat-icon matPrefix>euro</mat-icon>
+      <mat-error *ngIf="quotationForm.get('amount')?.hasError('required')">
+        El monto es requerido
+      </mat-error>
+      <mat-error *ngIf="quotationForm.get('amount')?.hasError('min')">
+        Debe ser mayor a 0
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Descripción</mat-label>
+      <textarea matInput formControlName="description" rows="4" 
+                placeholder="Descripción detallada del proyecto"></textarea>
+      <mat-icon matPrefix>description</mat-icon>
+    </mat-form-field>
+
+    <div class="form-section">
+      <div class="section-title">
+        <mat-icon>settings</mat-icon>
+        Estado y Configuración
+      </div>
+    </div>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Estado</mat-label>
+      <mat-select formControlName="quotationStatus">
+        <mat-option value="draft">Borrador</mat-option>
+        <mat-option value="pending">Pendiente</mat-option>
+        <mat-option value="revision">En Revisión</mat-option>
+        <mat-option value="approved">Aprobada</mat-option>
+        <mat-option value="rejected">Rechazada</mat-option>
+      </mat-select>
+      <mat-icon matPrefix>flag</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Prioridad</mat-label>
+      <mat-select formControlName="quotationPriority">
+        <mat-option value="low">Baja</mat-option>
+        <mat-option value="medium">Media</mat-option>
+        <mat-option value="high">Alta</mat-option>
+        <mat-option value="urgent">Urgente</mat-option>
+      </mat-select>
+      <mat-icon matPrefix>priority_high</mat-icon>
+    </mat-form-field>
+
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">
+    <mat-icon>close</mat-icon>
+    Cancelar
+  </button>
+  <button mat-raised-button color="primary" 
+          (click)="onSubmit()"
+          [disabled]="quotationForm.invalid">
+    <mat-icon>add</mat-icon>
+    Crear Cotización
+  </button>
+</mat-dialog-actions>
