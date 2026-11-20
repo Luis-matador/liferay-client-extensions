@@ -1,0 +1,199 @@
+:host {
+  display: block;
+}
+
+// Dialog container - sin padding
+::ng-deep .mat-mdc-dialog-container {
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+// Header - fijo arriba
+.dialog-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 24px;
+  background: linear-gradient(135deg, #4e73df 0%, #224abe 100%);
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+  mat-icon {
+    font-size: 28px;
+    width: 28px;
+    height: 28px;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 500;
+    flex: 1;
+  }
+}
+
+.quotation-badge {
+  background: rgba(255, 255, 255, 0.25);
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+// Content - con scroll SOLO aquí
+mat-dialog-content {
+  padding: 24px !important;
+  max-height: calc(80vh - 140px);
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  background-color: #f8f9fc;
+}
+
+// Detail sections
+.detail-section {
+  background-color: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-left: 4px solid #4e73df;
+
+  h3 {
+    color: #2c3e50;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin: 0 0 16px 0;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #e3e6f0;
+
+    mat-icon {
+      color: #4e73df;
+      font-size: 20px;
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+.detail-row {
+  display: flex;
+  padding: 12px 0;
+  align-items: flex-start;
+  border-bottom: 1px solid #f1f3f5;
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  &:first-child {
+    padding-top: 0;
+  }
+}
+
+.label {
+  font-weight: 600;
+  color: #5a5c69;
+  min-width: 140px;
+  flex-shrink: 0;
+  font-size: 0.875rem;
+}
+
+.value {
+  color: #3a3b45;
+  flex: 1;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+
+  &.description {
+    white-space: pre-wrap;
+    line-height: 1.6;
+    background: #f8f9fa;
+    padding: 12px;
+    border-radius: 6px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 0.875rem;
+  }
+}
+
+// Amount badge
+.amount-badge {
+  display: inline-flex;
+  align-items: center;
+  background: linear-gradient(135deg, #1cc88a 0%, #17a673 100%);
+  color: white;
+  font-weight: 700;
+  font-size: 1.25rem;
+  padding: 8px 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(28, 200, 138, 0.3);
+}
+
+// Status chips
+.status-chip,
+.priority-chip {
+  padding: 6px 14px !important;
+  border-radius: 20px !important;
+  font-weight: 600 !important;
+  font-size: 0.8rem !important;
+  height: auto !important;
+  min-height: 28px !important;
+}
+
+// Divider invisible
+mat-divider {
+  display: none;
+}
+
+// Actions - fijo abajo
+mat-dialog-actions {
+  padding: 16px 24px !important;
+  margin: 0 !important;
+  background: #f8f9fa;
+  border-top: 1px solid #e3e6f0;
+  position: sticky;
+  bottom: 0;
+  gap: 12px;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
+
+  button {
+    min-width: 100px;
+    font-weight: 500;
+  }
+}
+
+// Responsive
+@media (max-width: 600px) {
+  mat-dialog-content {
+    padding: 16px !important;
+    max-height: calc(90vh - 140px);
+  }
+
+  .detail-section {
+    padding: 16px;
+  }
+
+  .detail-row {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .label {
+    min-width: auto;
+    margin-bottom: 4px;
+  }
+
+  .amount-badge {
+    font-size: 1.1rem;
+  }
+}

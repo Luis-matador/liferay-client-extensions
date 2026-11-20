@@ -1,0 +1,50 @@
+<div class="dashboard-container">
+  <header class="dashboard-header">
+    <h1>
+      <mat-icon aria-hidden="true">assessment</mat-icon>
+      <span>Dashboard de Cotizaciones</span>
+    </h1>
+    <button mat-raised-button color="primary" (click)="createNewQuotation()">
+      <mat-icon aria-hidden="true">add</mat-icon>
+      <span>Nueva Cotización</span>
+    </button>
+  </header>
+
+  <mat-tab-group (selectedIndexChange)="onTabChange($event)" class="dashboard-tabs">
+    <mat-tab label="Resumen">
+      <div class="tab-content">
+        <!-- Metrics Cards -->
+        <app-metrics-overview></app-metrics-overview>
+
+        <!-- Charts Section -->
+        <div class="charts-grid">
+          <app-quotation-chart 
+            [chartType]="'status'" 
+            [title]="'Cotizaciones por Estado'">
+          </app-quotation-chart>
+          
+          <app-quotation-chart 
+            [chartType]="'trend'" 
+            [title]="'Tendencia Mensual'">
+          </app-quotation-chart>
+          
+          <app-quotation-chart 
+            [chartType]="'amount'" 
+            [title]="'Distribución por Monto'">
+          </app-quotation-chart>
+        </div>
+
+        <!-- Recent Quotations Table -->
+        <app-recent-quotations></app-recent-quotations>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Vista Kanban">
+      <div class="tab-content">
+        <app-status-kanban></app-status-kanban>
+      </div>
+    </mat-tab>
+
+    <!-- "Análisis" tab removed per UX request -->
+  </mat-tab-group>
+</div>

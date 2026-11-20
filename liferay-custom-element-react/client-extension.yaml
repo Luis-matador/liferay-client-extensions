@@ -1,0 +1,17 @@
+assemble:
+    -   from: build/vite
+        into: static
+liferay-custom-element-react:
+    cssURLs:
+        -   "**/index*.css"
+    friendlyURLMapping: liferay-custom-element-react
+    htmlElementName: liferay-custom-element-react
+    instanceable: false
+    name: Liferay Custom Element React
+    portletCategoryName: category.client-extensions
+    properties:
+        foo: bar
+    type: customElement
+    urls:
+        -   "main.js"
+    useESM: true

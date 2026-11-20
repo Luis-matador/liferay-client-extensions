@@ -1,0 +1,17 @@
+{
+  "com.liferay.client.extension.type.configuration.CETConfiguration~liferay-custom-element-react" : {
+    ":configurator:policy" : "force",
+    "baseURL" : "${portalURL}/o/liferay-custom-element-react",
+    "buildTimestamp" : 1764174446831,
+    "description" : "",
+    "dxp.lxc.liferay.com.virtualInstanceId" : "default",
+    "name" : "Liferay Custom Element React",
+    "projectId" : "liferaycustomelementreact",
+    "projectName" : "liferay-custom-element-react",
+    "properties" : [ "foo=bar" ],
+    "sourceCodeURL" : "",
+    "type" : "customElement",
+    "typeSettings" : [ "friendlyURLMapping=liferay-custom-element-react", "instanceable=false", "urls=main.js", "useESM=true", "htmlElementName=liferay-custom-element-react", "cssURLs=assets\\index.css", "portletCategoryName=category.client-extensions" ],
+    "webContextPath" : "/liferay-custom-element-react"
+  }
+}
