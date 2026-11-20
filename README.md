@@ -4,8 +4,8 @@ Dos Client Extensions de tipo *Custom Element* para Liferay DXP 7.4, desarrollad
 
 | Proyecto | Qué es | Stack |
 | --- | --- | --- |
-| [Flight Manager](liferay-custom-element-react) | Gestor de vuelos: panel con vuelos europeos, mapa en tiempo real, tienda de billetes con selección de asiento y cartera de billetes guardados en Custom Objects. | React 19, Vite, Leaflet, Framer Motion, GSAP |
-| [Dashboard de cotizaciones](liferay-sample-custom-element-3) | Gestión del ciclo de vida de presupuestos comerciales (borrador, revisión, aprobación) con métricas, gráficas y tablero kanban. | Angular 18, TypeScript |
+| [Flight Manager](flight-manager) | Gestor de vuelos: panel con vuelos europeos, mapa en tiempo real, tienda de billetes con selección de asiento y cartera de billetes guardados en Custom Objects. | React 19, Vite, Leaflet, Framer Motion, GSAP |
+| [Dashboard de cotizaciones](quotations-dashboard) | Gestión del ciclo de vida de presupuestos comerciales (borrador, revisión, aprobación) con métricas, gráficas y tablero kanban. | Angular 18, TypeScript |
 
 Ambas se integran con la **API Headless** de Liferay y guardan sus datos en **Custom Objects**, usando el token CSRF de la sesión del portal.
 
